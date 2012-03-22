@@ -762,7 +762,7 @@ service media /system/bin/mediaserver
     group system audio camera inet net_bt net_bt_admin
     ioprio rt 4
 
-service samsungani /system/bin/samsungani
+service samsungani /vendor/scripts/bootanimation.sh
     class main
     user graphics
     group graphics
@@ -901,3 +901,6 @@ service bugreport /system/bin/bugmailer.sh -v
 	disabled
 	oneshot
 	keycodes 114 115 116
+
+on property:sys.boot_completed=1
+    stop samsungani
