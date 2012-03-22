@@ -823,6 +823,10 @@ service flash_recovery /system/etc/install-recovery.sh
     class main
     oneshot
 
+service run_parts /system/bin/logwrapper /vendor/scripts/run-parts.sh
+    user root
+    oneshot
+
 service racoon /system/bin/racoon
     class main
     socket racoon stream 600 system system
