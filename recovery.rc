@@ -9,12 +9,21 @@ on init
 
     #symlink /system/etc /etc
 
+    symlink /misc /etc
+
     mkdir /sdcard
-    mkdir /sdcard1
+    mkdir /emmc
     mkdir /system
+    mkdir /system2
     mkdir /data
     mkdir /cache
+    mkdir /efs
+    mkdir /tmp
     mkdir /preload
+    mkdir /persist
+
+    mkdir /mnt 0775 root root
+
     mount /tmp /tmp tmpfs
 
 on fs
@@ -43,7 +52,7 @@ service ueventd /sbin/ueventd
 service recovery /sbin/recovery
 
 service adbd /sbin/adbd recovery
-    disabled
+    enabled
 
 # Always start adbd on userdebug and eng builds
 on property:ro.debuggable=1
