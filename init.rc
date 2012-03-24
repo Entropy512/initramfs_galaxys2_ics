@@ -173,6 +173,9 @@ on post-fs-data
     # We chown/chmod /data again so because mount is run as root + defaults
     chown system system /data
     chmod 0771 /data
+    mkdir /data/system
+    chown system system /data/system
+    chmod 0771 /data/system
 
     # Create dump dir and collect dumps.
     # Do this before we mount cache so eventually we can use cache for
